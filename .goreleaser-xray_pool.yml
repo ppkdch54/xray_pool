@@ -9,14 +9,6 @@ before:
     - sudo apt-get update -y
     - sudo apt-get install gcc libgtk-3-dev libayatana-appindicator3-dev
 builds:
-  - id: windows-build
-    goos:
-      - windows
-    goarch:
-      - amd64
-    main: ./cmd/xray_pool/main.go
-    ldflags:
-      - -s -w --extldflags "-static -fpic" -X main.AppVersion=v{{ .Version }} -H=windowsgui
   - id: linux-build
     goos:
       - linux
