@@ -34,6 +34,13 @@ archives:
       linux: Linux
       windows: Windows
       amd64: x86_64
+    name_template: >-
+      {{- .ProjectName }}_
+      {{- .Version }}_
+      {{- title .Os }}_
+      {{- if eq .Arch "amd64" }}x86_64
+      {{- else if eq .Arch "linux" }}Linux
+      {{- else }}{{ .Arch }}{{ end }}
 checksum:
   name_template: "checksums.txt"
 snapshot:
