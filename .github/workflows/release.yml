@@ -26,10 +26,8 @@ jobs:
         run: npm run build
         working-directory: frontend
 
-      - name: Set up Go
-        uses: actions/setup-go@v2
-        with:
-          go-version: 1.18
+      - name: Setup Go environment
+        uses: actions/setup-go@v4.1.0
 
       - name: Run GoReleaser
         uses: goreleaser/goreleaser-action@v2
