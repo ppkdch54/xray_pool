@@ -28,13 +28,16 @@ jobs:
 
       - name: Setup Go environment
         uses: actions/setup-go@v4.1.0
-
-      - name: Run GoReleaser
-        uses: goreleaser/goreleaser-action@v2
+        
+      - name: GoReleaser Action
+        uses: goreleaser/goreleaser-action@v4.4.0
         with:
-          # either 'goreleaser' (default) or 'goreleaser-pro'
+          # GoReleaser Distribution (goreleaser or goreleaser-pro)
           distribution: goreleaser
+          # GoReleaser version
           version: latest
+          # Arguments to pass to GoReleaser
           args: release -f .goreleaser-xray_pool.yml --clean
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN  }}
+          
